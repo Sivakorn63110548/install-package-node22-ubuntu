@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo -i
+
 echo "Updating package list..."
 sudo apt update && sudo apt upgrade -y
 
@@ -33,5 +35,15 @@ npm install -g pm2
 pm2 -v
 
 source ~/.bashrc 
+
+sudo mkdir -p /var/www/.service.titansjet.local
+cd /var/www/.service.titansjet.local
+git clone https://gitlab-ci-token:glpat-x5n5gUu5nAc_4YEerjsQ@gitlab.com/bookengine-dev/localhost.titansjet.sty.git
+
+yarn install
+yarn build
+
+pm2 start dist/main.js --name service.localhost
+pm2 ls
 
 echo "Installation complete!"
