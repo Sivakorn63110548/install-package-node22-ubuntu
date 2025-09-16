@@ -38,7 +38,7 @@ source ~/.bashrc
 
 sudo mkdir -p /var/www/service.titansjet.local
 cd /var/www/service.titansjet.local
-git clone https://gitlab-ci-token:glpat-x5n5gUu5nAc_4YEerjsQ@gitlab.com/bookengine-dev/localhost.titansjet.sty.git
+git clone https://gitlab-ci-token:glpat-x5n5gUu5nAc_4YEerjsQ@gitlab.com/bookengine-dev/localhost.titansjet.sty.git .
 
 yarn install
 yarn build
