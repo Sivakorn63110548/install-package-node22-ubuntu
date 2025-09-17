@@ -4,6 +4,8 @@ sudo -i
 
 echo "Updating package list..."
 sudo apt update && sudo apt upgrade -y
+sudo apt full-upgrade -y
+sudo apt autoremove -y && sudo apt autoclean
 
 echo "Installing Curl..."
 sudo apt install curl -y
@@ -36,14 +38,19 @@ pm2 -v
 
 source ~/.bashrc 
 
-sudo mkdir -p /var/www/service.titansjet.local
-cd /var/www/service.titansjet.local
+sudo mkdir -p /var/www/service.titansjet.sty
+cd /var/www/service.titansjet.sty
 git clone https://gitlab-ci-token:glpat-x5n5gUu5nAc_4YEerjsQ@gitlab.com/bookengine-dev/localhost.titansjet.sty.git .
 
 yarn install
 yarn build
 
-pm2 start dist/main.js --name service.localhost
+pm2 start npm --name "service.titansjet.sty" -- run start:prod
+pm2 show service.titansjet.sty
+pm2 log service.titansjet.sty
 pm2 ls
 
 echo "Installation complete!"
+
+# login tailscale
+tailscale login
