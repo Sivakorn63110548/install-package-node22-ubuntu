@@ -47,7 +47,6 @@ yarn build
 
 pm2 start npm --name "service.titansjet.sty" -- run start:prod
 pm2 show service.titansjet.sty
-pm2 log service.titansjet.sty
 pm2 ls
 
 echo "Installation complete!"
